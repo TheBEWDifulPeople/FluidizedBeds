@@ -1,4 +1,5 @@
 WaterStatusApp::Application.routes.draw do
+  devise_for :users
     root 'static_pages#index'
 
   get '/about',   to: 'static_pages#about'
@@ -7,14 +8,8 @@ WaterStatusApp::Application.routes.draw do
   get '/well',  to: 'static_pages#well'  
   get '/search', to: 'static_pages#search'
 
-  resources :users
-  resources :sessions, only: [:new, :create, :destroy]
-
-  get '/signup',  to: 'users#new'
-  get '/login',  to: 'sessions#new'
-  get '/logout', to: 'sessions#destroy', via: :delete
-
-
+  # resources :users
+ 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
