@@ -1,0 +1,25 @@
+
+<!--Table to show selected credential -->
+	<section>
+		<table border="1">
+  			<tr>
+			    <th>Course Name</th>
+			    <th>Course Date</th>
+			    <th>Credits</th>
+			    <th>Certificate</th>
+  			</tr>
+  			
+  			<tr>
+			    <td><p><%= @course.name %></p></td>
+			    <td><p style = "color: green;"><%= @course.course_date %></p></td>
+			    <td><p style = "color: green;"><%= @course.credits %></p></td>
+				<td><p style = "color: green;"><%= @course.certificate %></p></td>
+  			</tr>
+  			
+		</table>
+	</section>
+
+
+<p><%= link_to "Edit", edit_course_path(@course) %> | <%= link_to "Delete", course_path(course_id: @course.id), method: :delete %></p>
+
+<p><%= link_to "Return to My Courses", courses_path %></p>

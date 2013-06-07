@@ -1,0 +1,26 @@
+<h1>My Continuing Education Courses</h1>
+
+<!--Table to show courses-->
+	<section>
+		<table border="1">
+  			<tr>
+			    <th>Course Name</th>
+			    <th>Course Date</th>
+			    <th>Credits</th>
+			    <th>Certificate</th>
+  			</tr>
+  			<% @courses.each do |course| %>
+  			<tr>
+			    <td><p><%= course.name %></p></td>
+			    <td><p style = "color: green;"><%= course.course_date %></p></td>
+			    <td><p style = "color: green;"><%= course.credits %></p></td>
+				<td><p style = "color: green;"><%= course.certificate %></p></td>
+				<td><p><%= link_to "View", course %></p></td>
+  			</tr>
+  			<% end %>
+
+		</table>
+	</section>
+
+
+<%= link_to "Add New Course", new_course_path %> | <%= link_to "View Credentials", credentials_path %>
