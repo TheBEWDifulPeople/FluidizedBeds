@@ -1,6 +1,7 @@
 CredCabinet::Application.routes.draw do
   
-  root 'credentials#index'
+  devise_for :users
+  root 'home#index'
 
   resources :credentials
   resources :courses

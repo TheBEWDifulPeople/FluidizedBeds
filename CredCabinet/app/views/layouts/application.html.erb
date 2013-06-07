@@ -44,19 +44,44 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/">CredCabinet</a>
+          <a class="brand" href="/">Credential Cabinet</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav pull-right">
-              <li><%= link_to "Login", "/path1"  %></li>
-              <li><%= link_to "SignUp", "/path2"  %></li>
+
+
+               <!--If signed in, header links change-->
+          
+            <% if user_signed_in? %>
+              
+              <li id="fat-menu" class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  My Account <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "Profile", "#" %></li>
+                  <li><%= link_to "Settings", edit_user_registration_path %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+                </ul>
+              </li>
+            <% else %>
+              <li><%= link_to "Login", new_user_session_path %></li>
+            <% end %>
+        
+            <% if user_signed_in? != true %>
+              <li><%= link_to "SignUp", new_user_registration_path %></li> 
+            <% end %>
+
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
 
+
     <div class="container-fluid">
       <div class="row-fluid">
+
+            <% if user_signed_in? %>
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
@@ -64,10 +89,12 @@
               <li><%= link_to "View Credentials", "/credentials"  %></li>
               <li><%= link_to "View Courses", "/courses"  %></li>
               <li><%= link_to "Renewal Credits", "/courses"  %></li>
-              <li><%= link_to "My Account", "/path3"  %></li>
+              <li><%= link_to "Settings", edit_user_registration_path  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
+          <% end %>
+
         <div class="span9">
           <%= bootstrap_flash %>
           <%= yield %>
