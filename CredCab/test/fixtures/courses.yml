@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  course_date: 2013-06-09 19:55:32
+  credits: 1
+  certificate: MyString
+  user_id: 
+
+two:
+  name: MyString
+  course_date: 2013-06-09 19:55:32
+  credits: 1
+  certificate: MyString
+  user_id: 
