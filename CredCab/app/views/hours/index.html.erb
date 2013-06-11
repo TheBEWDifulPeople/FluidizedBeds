@@ -1,0 +1,31 @@
+<h1>My Total Hours</h1>
+
+<!--Table to show hours-->
+	<section>
+		<table border="1">
+  			<tr>
+			    <th>Title</th>
+			    <th>Hours Required</th>
+			    <th>Hours Completed</th>
+  			</tr>
+  			<% @credentials.each do |credential| %>
+  			<tr>
+
+			    <td><p><%= credential.title %></p></td>
+			    <td><p><%= credential.hoursrequired %></p></td>
+			<% end %>
+
+				
+
+  			</tr>
+  			
+		</table>
+	</section>
+
+
+<%= link_to "Home", root_path %> 
+
+
+			   	<% @courses.sum do |course| %>
+					<td><p><%= 2 + course.credits %></p></td>
+				<% end %>

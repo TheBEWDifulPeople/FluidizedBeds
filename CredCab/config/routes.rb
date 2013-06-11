@@ -5,6 +5,7 @@ CredCab::Application.routes.draw do
 
   resources :credentials
   resources :courses
+  resources :hours
 
   delete '/credentials/:id(.:format)', to: 'credentials#destroy'
 

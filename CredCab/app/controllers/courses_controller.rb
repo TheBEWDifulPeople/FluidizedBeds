@@ -6,20 +6,23 @@ class CoursesController < ApplicationController
 
 	def new
 		@courses = Course.new
+		@credentials = Credential.all
 	end
 
 	def create
-		safe_params = params.require('course').permit(:name, :course_date, :credits, :certificate)
+		safe_params = params.require('course').permit(:name, :course_date, :credits, :certificate, :credential_id)
   	 	@courses = Course.new(safe_params)
 	      if @courses.save
 	  	     redirect_to @courses
 	       else
+	       	@credentials = Credential.all
 	        render 'new'
 	      end
 	end
 
 	def edit
 		@courses = Course.find(params[:id])
+		@credentials = Credential.all
 	end
 
 	def update
@@ -40,6 +43,6 @@ class CoursesController < ApplicationController
 
 	private
 		def course_params
-       		params.require('course').permit(:name, :course_date, :credits, :certificate)
+       		params.require('course').permit(:name, :course_date, :credits, :certificate, :credential_id)
   		end
 end

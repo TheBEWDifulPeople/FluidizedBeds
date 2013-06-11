@@ -1,6 +1,5 @@
 class CredentialsController < ApplicationController
-	before_action :signed_in_user, only: [:edit, :update, :destroy]
-  	before_action :correct_user,   only: [:edit, :update, :destroy]
+	# before_filter :authorize 
 
 
 	def index
@@ -12,7 +11,7 @@ class CredentialsController < ApplicationController
 	end
 
 	def create
-		safe_params = params.require('credential').permit(:title, :issuing_authority, :date_issued, :last_renewal, :next_renewal, :credential_image)
+		safe_params = params.require('credential').permit(:title, :issuing_authority, :date_issued, :last_renewal, :next_renewal, :hoursrequired, :credential_image)
   	 	@credential = Credential.new(safe_params)
 	      if @credential.save
 	  	     redirect_to @credential
@@ -43,16 +42,12 @@ class CredentialsController < ApplicationController
 
 		private
 		def cred_params
-       		params.require('credential').permit(:title, :issuing_authority, :date_issued, :last_renewal, :next_renewal, :credential_image)
+       		params.require('credential').permit(:title, :issuing_authority, :date_issued, :last_renewal, :next_renewal, :hoursrequired, :credential_image)
   		end
 
-  		def signed_in_user
-      		redirect_to signin_url, notice: "Please sign in." unless signed_in? 
-    	end
-
-    	def correct_user
-      		@user = User.find(params[:id])
-      		redirect_to(root_path) unless current_user?(@user)
-    	end
+    	# def authorize
+     #  		@credentials = Credential.find(params[:id])
+     #  		redirect_to(root_path) unless current_user?(@credential)
+    	# end
 end
 

@@ -16,6 +16,7 @@
 			    <th>Course Date</th>
 			    <th>Credits</th>
 			    <th>Certificate</th>
+			    <th>Select Credential</th>
   			</tr>
   		
   			<%= form_for @courses do |f| %>
@@ -24,6 +25,7 @@
 				<td><%= f.date_select :course_date %></p></td>
 			    <td><%= f.text_field :credits %></p></td>
 				<td><%= f.text_field :certificate %></p></td>
+				<td><p><%= f.collection_select :credential_id, @credentials, :id, :title %></p></td>
   			</tr>	
 		</table>
 		<%= f.submit %>
