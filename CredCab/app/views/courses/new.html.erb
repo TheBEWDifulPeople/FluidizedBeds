@@ -10,27 +10,18 @@
 <% end %>
 
 <section>
-		<table border="1">
-  			<tr>
-			    <th>Course Name</th>
-			    <th>Course Date</th>
-			    <th>Credits</th>
-			    <th>Certificate</th>
-			    <th>Select Credential</th>
-  			</tr>
-  		
-  			<%= form_for @courses do |f| %>
-  			<tr>
-			    <td><p><%= f.text_field :name %></p></td>
-				<td><%= f.date_select :course_date %></p></td>
-			    <td><%= f.text_field :credits %></p></td>
-				<td><%= f.text_field :certificate %></p></td>
-				<td><p><%= f.collection_select :credential_id, @credentials, :id, :title %></p></td>
-  			</tr>	
-		</table>
-		<%= f.submit %>
+  		<%= form_for @courses do |f| %>
+  			
+			    <p><%= f.text_field :name, :placeholder => "Course Name" %></p>
+			    <%= f.label :course_date %>
+				<%= f.date_select :course_date %></p>
+			    <%= f.text_field :credits, :placeholder => "Course Credits" %></p>
+				<%= f.text_field :certificate, :placeholder => "Certificate" %></p>
+				<%= f.label :Select_Credential %>
+				<p><%= f.collection_select :credential_id, @credentials, :id, :title %></p>
+  			
+			<%= f.submit %>
 		<% end %>
 </section>
 
 <%= link_to "Cancel", courses_path %>
-

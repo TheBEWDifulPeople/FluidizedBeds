@@ -9,6 +9,11 @@ CredCab::Application.routes.draw do
 
   delete '/credentials/:id(.:format)', to: 'credentials#destroy'
 
+
+  get '/about',   to: 'static_pages#about'  
+  get '/privacy', to: 'static_pages#privacy'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

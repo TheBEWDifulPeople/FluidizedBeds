@@ -7,6 +7,7 @@ class HomeController < ApplicationController
   def index
   end
 
+ 
    private 
   def reject_authenticate
   	redirect_to credentials_path if current_user

@@ -12,10 +12,10 @@
   			
   			<tr>
 			    <td><p><%= @course.name %></p></td>
-			    <td><p style = "color: green;"><%= @course.course_date %></p></td>
-			    <td><p style = "color: green;"><%= @course.credits %></p></td>
-				<td><p style = "color: green;"><%= @course.certificate %></p></td>
-				<td><p style = "color: green;"><%= credential.title %></p></td>
+			    <td><p><%= @course.course_date.strftime('%D') %></p></td>
+			    <td><p><%= @course.credits %></p></td>
+				<td><p><%= @course.certificate %></p></td>
+				<td><p><%= @course.credential_id %></p></td>
   			</tr>
   			
 		</table>
@@ -25,3 +25,4 @@
 <p><%= link_to "Edit", edit_course_path(@course) %> | <%= link_to "Delete", course_path(course_id: @course.id), method: :delete %></p>
 
 <p><%= link_to "Return to My Courses", courses_path %></p>
+

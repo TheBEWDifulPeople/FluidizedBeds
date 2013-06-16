@@ -1,17 +1,21 @@
 class CoursesController < ApplicationController
+
 	def index
-		@courses = Course.all
-		# @credentials = @courses.credentials
+		# @courses = Course.all
+		@courses = current_user.courses
 	end
 
 	def new
-		@courses = Course.new
-		@credentials = Credential.all
+		# @courses = Course.new
+		@courses = current_user.courses.new
+		# @credentials = Credential.all
+		@credentials = current_user.credentials
 	end
 
 	def create
 		safe_params = params.require('course').permit(:name, :course_date, :credits, :certificate, :credential_id)
-  	 	@courses = Course.new(safe_params)
+  	 	@courses = current_user.courses.new(safe_params)
+  	 	# @courses = Course.new(safe_params)
 	      if @courses.save
 	  	     redirect_to @courses
 	       else
@@ -22,7 +26,7 @@ class CoursesController < ApplicationController
 
 	def edit
 		@courses = Course.find(params[:id])
-		@credentials = Credential.all
+		@credentials = current_user.credentials
 	end
 
 	def update
@@ -33,6 +37,7 @@ class CoursesController < ApplicationController
 
 	def show
 		@course = Course.find(params[:id])
+		# @credential = Course.find(params[:id])
 	end
 
 	def destroy

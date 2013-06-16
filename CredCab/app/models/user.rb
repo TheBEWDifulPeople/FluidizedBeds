@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :courses
 	has_many :credentials
+	has_many :hours
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

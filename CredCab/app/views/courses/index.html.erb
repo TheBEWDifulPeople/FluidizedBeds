@@ -1,8 +1,10 @@
+<% provide(:title, 'My Continuing Education Courses') %>
+
 <h1>My Continuing Education Courses</h1>
 
 <!--Table to show courses-->
 	<section>
-		<table border="1">
+		<table class = "table table-striped">
   			<tr>
 			    <th>Course Name</th>
 			    <th>Course Date</th>
@@ -13,9 +15,10 @@
   			<% @courses.each do |course| %>
   			<tr>
 			    <td><p><%= course.name %></p></td>
-			    <td><p style = "color: green;"><%= course.course_date %></p></td>
-			    <td><p style = "color: green;"><%= course.credits %></p></td>
-				<td><p style = "color: green;"><%= course.certificate %></p></td>
+			    <td><p><%= course.course_date.strftime('%D') %></p></td>
+			    <td><p><%= course.credits %></p></td>
+				<td><p><%= course.certificate %></p></td>
+				<td><p><%= course.credential_id %></p></td>
 				<td><p><%= link_to "View", course %></p></td>
   			</tr>
   			<% end %>

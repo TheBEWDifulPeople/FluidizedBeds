@@ -1,18 +1,20 @@
 class CredentialsController < ApplicationController
-	# before_filter :authorize 
 
 
 	def index
-		@credentials = Credential.all
+		# @credentials = Credential.all
+		@credentials = current_user.credentials
 	end
 
 	def new
-		@credentials = Credential.new
+		# @credentials = Credential.new
+		@credentials = current_user.credentials.new
 	end
 
 	def create
 		safe_params = params.require('credential').permit(:title, :issuing_authority, :date_issued, :last_renewal, :next_renewal, :hoursrequired, :credential_image)
-  	 	@credential = Credential.new(safe_params)
+  	 	@credential = current_user.credentials.new(safe_params)
+  	 	# @credential = Credential.new(safe_params)
 	      if @credential.save
 	  	     redirect_to @credential
 	       else
@@ -45,9 +47,5 @@ class CredentialsController < ApplicationController
        		params.require('credential').permit(:title, :issuing_authority, :date_issued, :last_renewal, :next_renewal, :hoursrequired, :credential_image)
   		end
 
-    	# def authorize
-     #  		@credentials = Credential.find(params[:id])
-     #  		redirect_to(root_path) unless current_user?(@credential)
-    	# end
 end
 
