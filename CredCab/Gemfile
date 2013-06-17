@@ -38,6 +38,10 @@ gem "twitter-bootstrap-rails"
 
 gem 'devise', git: "https://github.com/plataformatec/devise.git", branch:  "rails4"
 
+
+gem 'carrierwave'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

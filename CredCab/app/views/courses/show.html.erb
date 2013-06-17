@@ -21,7 +21,10 @@
 		</table>
 	</section>
 
-<%= image_tag @course.certificate %>
+
+<div class="image">
+<%= image_tag(@course.certificate_url.to_s) if @course.certificate? %>
+</div>
 
 <p><%= link_to "Edit", edit_course_path(@course) %> | <%= link_to "Delete", course_path(course_id: @course.id), method: :delete %></p>
 

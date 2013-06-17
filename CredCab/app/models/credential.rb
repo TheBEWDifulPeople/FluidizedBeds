@@ -1,7 +1,10 @@
 class Credential < ActiveRecord::Base
   belongs_to :user
   has_many :hours
-  has_many :courses
+  # has_many :courses
+  has_and_belongs_to_many :courses
+
+  mount_uploader :credential_image, CredimageUploader
 
 	validates :title, :issuing_authority, :date_issued, :last_renewal, :next_renewal, :hoursrequired, presence: true
 	validates :title, length: { minimum: 5, maximum: 50 }
