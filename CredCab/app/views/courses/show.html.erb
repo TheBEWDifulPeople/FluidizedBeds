@@ -1,7 +1,7 @@
 
 <!--Table to show selected credential -->
 	<section>
-		<table border="1">
+		<table class = "table table-striped">
   			<tr>
 			    <th>Course Name</th>
 			    <th>Course Date</th>
@@ -15,12 +15,13 @@
 			    <td><p><%= @course.course_date.strftime('%D') %></p></td>
 			    <td><p><%= @course.credits %></p></td>
 				<td><p><%= @course.certificate %></p></td>
-				<td><p><%= @course.credential_id %></p></td>
+				<td><p><%= @course.credential_id %></p></td> 
   			</tr>
   			
 		</table>
 	</section>
 
+<%= image_tag @course.certificate %>
 
 <p><%= link_to "Edit", edit_course_path(@course) %> | <%= link_to "Delete", course_path(course_id: @course.id), method: :delete %></p>
 

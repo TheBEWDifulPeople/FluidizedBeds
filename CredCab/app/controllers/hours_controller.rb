@@ -1,9 +1,8 @@
 class HoursController < ApplicationController
 
 	def index
-		@credentials = Credential.all
-		@courses = Course.all
-		# @course = Course.find(params[:credits])
+		@credentials = current_user.credentials
+		@courses = current_user.courses
 	end
 
 	def show 

@@ -30,9 +30,9 @@ class CoursesController < ApplicationController
 	end
 
 	def update
-		@course = Course.find(params[:id])
-		@course.update(course_params)
-		redirect_to @course
+		@courses = Course.find(params[:id])
+		@courses.update(course_params)
+		redirect_to @courses
 	end
 
 	def show

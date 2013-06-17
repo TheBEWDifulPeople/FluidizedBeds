@@ -13,19 +13,20 @@
 
 			    <td><p><%= credential.title %></p></td>
 			    <td><p><%= credential.hoursrequired %></p></td>
-			<% end %>
-				<td>
+			    <td>
 					<% @courses.sum do |course| %>
 					<p><%= course.credits %></p>
 					<% end %>
 				</td>
+			<% end %>
+				
   			</tr>
   			
 		</table>
 	</section>
 
 
-<%= link_to "Home", root_path %> 
+<%= link_to "View Courses", courses_path %> | <%= link_to "View Credentials", credentials_path %>
 
 
 			  

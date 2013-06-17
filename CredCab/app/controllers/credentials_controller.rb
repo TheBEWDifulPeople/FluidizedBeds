@@ -13,10 +13,10 @@ class CredentialsController < ApplicationController
 
 	def create
 		safe_params = params.require('credential').permit(:title, :issuing_authority, :date_issued, :last_renewal, :next_renewal, :hoursrequired, :credential_image)
-  	 	@credential = current_user.credentials.new(safe_params)
+  	 	@credentials = current_user.credentials.new(safe_params)
   	 	# @credential = Credential.new(safe_params)
-	      if @credential.save
-	  	     redirect_to @credential
+	      if @credentials.save
+	  	     redirect_to @credentials
 	       else
 	        render 'new'
 	      end
@@ -31,9 +31,9 @@ class CredentialsController < ApplicationController
 	end
 
 	def update
-		@credential = Credential.find(params[:id])
-		@credential.update(cred_params)
-		redirect_to @credential
+		@credentials = Credential.find(params[:id])
+		@credentials.update(cred_params)
+		redirect_to @credentials
 	end
 
 	def destroy

@@ -7,10 +7,8 @@ class Course < ActiveRecord::Base
   	self.credentials.pluck(:title)
   end
 
-
-
-  	# validates :course, :date, :credits, presence: true
-	# validates :date, length: { minimum: 4 }
-	# validates :credits, :numericality => {:greater_than_or_equal_to => 1 }
-	# validates :certificate, format: { with: /\A\w+.pdf\z/ }
+  	validates :name, :course_date, :credits, presence: true
+  	validates :name, length: { minimum: 5, maximum: 50 }
+	validates :credits, :numericality => {:greater_than_or_equal_to => 1 }
+	validates :certificate, format: { with: /\A\w+.pdf\z/ }
 end

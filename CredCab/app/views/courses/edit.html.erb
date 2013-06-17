@@ -3,7 +3,7 @@
 <h1>Edit Course</h1>
 
 <% if @courses.errors.any? %>
-	<h2>There were errors saving your credentials</h2>
+	<h2>There were errors updating your course!</h2>
 	<ul>
 		  <% @courses.errors.full_messages.each do |msg| %>
 		  <li><%= msg %></li>
@@ -12,24 +12,17 @@
 <% end %>
 
 <section>
-		<table border="1">
-  			<tr>
-			    <th>Course Name</th>
-			    <th>Course Date</th>
-			    <th>Credits</th>
-			    <th>Certificate</th>
-			    <th>Credential</th>
-  			</tr>
-  			<%= form_for @courses do |f| %>
-  			<tr>
-			    <td><p><%= f.text_field :name %></p></td>
-			    <td><p style = "color: green;"><%= f.date_select :course_date %></p></td>
-			    <td><p style = "color: green;"><%= f.text_field :credits%></p></td>
-				<td><p style = "color: green;"><%= f.text_field :certificate %></p></td>
-				<td><p><%= f.collection_select :credential_id, @credentials, :id, :title %></p></td>
-  			</tr>	
-		</table>
-		<%= f.submit %>
+		<%= form_for @courses do |f| %>
+  			
+			    <p><%= f.text_field :name, :placeholder => "Course Name" %></p>
+			    <%= f.label :course_date %>
+				<%= f.date_select :course_date %></p>
+			    <%= f.text_field :credits, :placeholder => "Course Credits" %></p>
+				<%= f.text_field :certificate, :placeholder => "Certificate" %></p>
+				<%= f.label :Select_Credential %>
+				<p><%= f.collection_select :credential_id, @credentials, :id, :title %></p>
+  			
+			<%= f.submit %>
 		<% end %>
 </section>
 </br>
