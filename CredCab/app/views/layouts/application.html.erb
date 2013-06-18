@@ -36,7 +36,7 @@
   </head>
   <body>
 
-    <div class="navbar navbar-fluid-top">
+    <div class="navbar navbar-fluid-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container-fluid">
           <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
@@ -52,7 +52,7 @@
 
                <!--If signed in, header links change-->
           
-            <% if user_signed_in? %>
+              <% if user_signed_in? %>
                   <li><button class="btn" type="submit"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></button></li>
               </li>
             <% else %>
@@ -60,7 +60,7 @@
             <% end %>
         
             <% if user_signed_in? != true %>
-              <li><%= link_to "SignUp", new_user_registration_path %></li> 
+              <li><%= link_to "Sign Up", new_user_registration_path %></li> 
             <% end %>
 
             </ul>
@@ -68,7 +68,6 @@
         </div>
       </div>
     </div>
-
 
   <div class="container-fluid">
       <div class="row-fluid">

@@ -1,21 +1,55 @@
 <% provide(:title, 'Your Place for Organizing and Managing Professional Credentials') %>
 
+<div class = "container">
+	<div class = "clearfix">
+        <div class="hero-unit">
+			<table style="margin: auto;">
+				<tr>
+					<td style ="width:35%;"><img src="black_cabinet.png"></td>
+					<td><h2>Manage professional licenses, </br>certificates, and continuing education credits</h2></br> <h2>Get a yearly subscription for $24 </h2>
 
-<div class = "span9">
+					<button class="btn btn-large" type="submit"><%= link_to "Sign Up for Credential Cabinet", new_user_registration_path %></button>
 
-	<h3 class ="lead">Your secure location for managing licenses, certificates, and continuing education credits.</h3>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
 
-	<img src="mock.jpg">
-
-</div>
-
-<div class = "span3">
+	</br>
+	</br>
 	
-		<h2>Sign in</h2>
+	<div class = "clearfix">
+		<div class ="row" style="text-align:center;">
+			<ul class="thumbnails">
+			  <li class="span4">
+			  	<h1><i class="icon-folder-open"> </i>Store</h1>
+			  		<h4>Safely store professional credentials</h4>
+			  		<h4>Organize continuing education credits</h4>
+			  </li>
+			 
+			 <li class="span4">
+			    <h1><i class="icon-tasks"> </i>Track</h1>
+			  	<h4>Manage renewal dates</h4>
+			  	<h4>Record continuing education credits</h4>
+			 </li>
 
+			  <li class="span4">
+			    <h1><i class="icon-bell"> </i>Notify</h1>
+			  	<h4>Get notified before renewal</h4>
+			  	<h4>Make sure you have enough credits</h4>
+			  </li>
+			</ul>
+		</div>
+	</div>
 
-
-	
-
+	<div class = "clearfix">
+		<div class="row">
+ 			 <div class="span12" style="text-align:center">
+				<button class="btn btn-info" type="button">Take a Tour</button> </br></br>
+				<button class="btn btn-large" type="submit"><%= link_to "Sign Up for Credential Cabinet", new_user_registration_path %></button>
+			</div>
+		</div>
+	</div>
 
 </div>
