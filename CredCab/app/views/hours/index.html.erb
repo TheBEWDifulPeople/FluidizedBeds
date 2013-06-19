@@ -14,7 +14,7 @@
 			    <td><p><%= credential.title %></p></td>
 			    <td><p><%= credential.hoursrequired %></p></td>
 			    <td>
-					<% @courses.sum do |course| %>
+					<% @courses.each do |course| %>
 					<p><%= course.credits %></p>
 					<% end %>
 				</td>

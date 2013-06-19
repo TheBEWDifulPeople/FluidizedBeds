@@ -3,8 +3,15 @@ class Course < ActiveRecord::Base
   has_many :labels
   has_many :credentials, :through => :labels
 
-  def credential_list
-  	self.credentials.pluck(:title)
+  # def credential_list
+  # 	self.credentials.pluck(:title)
+  # end
+
+
+  def credit_addition
+    courses.credits do |course|
+          course.credits 
+    end
   end
 
 
