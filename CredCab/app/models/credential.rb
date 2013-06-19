@@ -1,8 +1,8 @@
 class Credential < ActiveRecord::Base
+	
   belongs_to :user
-  has_many :hours
-  # has_many :courses
-  has_and_belongs_to_many :courses
+  has_many :labels
+  has_many :courses, :through => :labels
 
   mount_uploader :credential_image, CredimageUploader
 

@@ -18,7 +18,7 @@
 			    <td><p><%= course.course_date.strftime('%D') %></p></td>
 			    <td><p><%= course.credits %></p></td>
 				<td><p><%= course.certificate %></p></td>
-				<td><p><%= course.credential_id %></p></td>
+				<td><p><%= course.credentials.pluck :title %></p></td>
 				<td><p><%= link_to "View", course %></p></td>
   			</tr>
   			<% end %>

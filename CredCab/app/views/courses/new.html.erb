@@ -21,7 +21,7 @@
 				<%= f.date_select :course_date %></p>
 			    <%= f.text_field :credits, :placeholder => "Course Credits" %></p>
 				<%= f.label :Select_Credential %>
-				<p><%= f.collection_select :credential_id, @credentials, :id, :title %></p>
+				<p><%= f.collection_select :credential_id, @credentials, :id, :title, method: :post %></p>
 
 				<%= f.label :Add_Course_Certificate %>
 				<p><%= f.file_field :certificate %></p>

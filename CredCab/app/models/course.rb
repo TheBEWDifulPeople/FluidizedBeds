@@ -1,8 +1,7 @@
 class Course < ActiveRecord::Base
   belongs_to :user
-  # has_many :credentials 
-  has_and_belongs_to_many :credentials
-
+  has_many :labels
+  has_many :credentials, :through => :labels
 
   def credential_list
   	self.credentials.pluck(:title)
