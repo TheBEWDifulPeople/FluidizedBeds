@@ -10,7 +10,11 @@
 			    <th>Course Date</th>
 			    <th>Credits</th>
 			    <th>Certificate</th>
-			    <th>Credential</th>
+
+			  	<% @credentials.each do |credential|%>
+			  	<th><%=credential.title %></th>
+			  	<% end %>
+			  	<th>Credential</th>
   			</tr>
   			<% @courses.each do |course| %>
   			<tr>
@@ -18,7 +22,11 @@
 			    <td><p><%= course.course_date.strftime('%D') %></p></td>
 			    <td><p><%= course.credits %></p></td>
 				<td><p><%= course.certificate %></p></td>
-				<td><p><%= course.credentials.pluck :title %></p></td>
+				
+				<% @credentials.each do |credential|%>
+			  	<td><%=credential.title %></td>
+			  	<% end %>
+				<td><p><%= convert_to_label course.label_list %>
 				<td><p><%= link_to "View", course %></p></td>
   			</tr>
   			<% end %>
@@ -28,5 +36,4 @@
 
 
 <%= link_to "Add New Course", new_course_path %> | <%= link_to "View Credentials", credentials_path %>
-
 

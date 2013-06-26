@@ -29,6 +29,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+gem 'jquery-ui-rails'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
@@ -43,12 +45,13 @@ end
 gem "therubyracer"
 gem "less-rails" 
 gem "twitter-bootstrap-rails"
+gem 'rails_log_stdout', github: 'heroku/rails_log_stdout'
+gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
 
 gem 'devise', git: "https://github.com/plataformatec/devise.git", branch:  "rails4"
 
 
 gem 'carrierwave'
-
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

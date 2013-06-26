@@ -53,7 +53,7 @@
                <!--If signed in, header links change-->
           
               <% if user_signed_in? %>
-                  <li><button class="btn" type="submit"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></button></li>
+                  <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
               </li>
             <% else %>
               <li><%= link_to "Login", new_user_session_path %></li>

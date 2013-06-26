@@ -4,7 +4,7 @@ class CoursesController < ApplicationController
 		# @courses = Course.all
 		# @credentials = find_cred_title
 		@courses = current_user.courses
-		# @credentials = current_user.credentials
+		@credentials = current_user.credentials
 	end
 
 	def new
@@ -17,14 +17,19 @@ class CoursesController < ApplicationController
 	def create
 		safe_params = params.require('course').permit(:name, :course_date, :credits, :certificate, :credential_id)
   	 	@courses = current_user.courses.new(safe_params)
+  	 	
+  	 	# @credential = current_user.credentials.where(:credential_id, :id )
+  	 	# @courses.credentials << @credential
+
+  	 	# current_user.credentials.where(params[:course_id], params[:credential_id])
+  	 	# @credential = Credential.find_by(params[:credential_id])
+  	 	# Credential.where(:credential_id, :title)
   	 	# course.credential_id = params[:credential_id]
-  	 	@credential = Credential.find_by(params[:credential_id])
-  	 	@courses.credentials << @credential
   	 	# @courses = Course.new(safe_params)
 	      if @courses.save
 	  	     redirect_to @courses
 	       else
-	       	@credentials = Credential.all
+	       	@credentials = current_user.credentials
 	        render 'new'
 	      end
 	end
@@ -55,18 +60,8 @@ class CoursesController < ApplicationController
 
 	private
 		def course_params
-       		params.require('course').permit(:name, :course_date, :credits, :certificate, :credential_id)
-  		end
-
-  		def find_cred_title
-  			params.each do |id, title|
-  				if id =~/(.+)_id$/
-  					return $1.classify.constantize.find(title)
-  				end 
-  			end
-  			nil
+       		params.require('course').permit(:name, :course_date, :credits, :certificate, :credential_id, :label_list)
   		end
 
 end
 
-# course.credentials << @credential

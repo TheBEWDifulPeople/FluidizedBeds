@@ -8,7 +8,7 @@
 					<td style ="width:35%;"><img src="black_cabinet.png"></td>
 					<td><h2>Manage professional licenses, </br>certificates, and continuing education credits</h2></br> <h2>Get a yearly subscription now.</h2>
 
-					<button class="btn btn-large" type="submit"><%= link_to "Sign Up for Credential Cabinet", new_user_registration_path %></button>
+					<h2><%= link_to "Sign Up for Credential Cabinet", new_user_registration_path, :class => 'btn btn-large btn-inverse' %></h2>
 
 					</td>
 				</tr>
@@ -46,8 +46,9 @@
 	<div class = "clearfix">
 		<div class="row">
  			 <div class="span12" style="text-align:center">
-				<button class="btn btn-info" type="button">Take a Tour</button> </br></br>
-				<button class="btn btn-large" type="submit"><%= link_to "Sign Up for Credential Cabinet", new_user_registration_path %></button>
+				<h2><%= link_to "Take a Tour", new_user_registration_path, :class => 'btn btn-large btn-primary' %></h2>
+			</br>
+				<h2><%= link_to "Sign Up for Credential Cabinet", new_user_registration_path, :class => 'btn btn-large btn-inverse' %></h2>
 			</div>
 		</div>
 	</div>

@@ -3,9 +3,7 @@ class User < ActiveRecord::Base
 	has_many :credentials
 	has_many :hours
 
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable, :confirmable,
+         :lockable, :timeoutable
 end

@@ -1,33 +1,51 @@
 <h1>Add a New Course</h1>
 
-<div class= "field_with_errors"> 
+<div style="color:red;"> 
 
 <% if @courses.errors.any? %>
 	<h2>There were errors saving your course!</h2>
-	<ul>
+	<ol>
 		  <% @courses.errors.full_messages.each do |msg| %>
 		  <li><%= msg %></li>
 		  <% end %>
-	</ul>
+	</ol>
 <% end %>
 
 </div>
 
 <section>
   		<%= form_for @courses do |f| %>
-  			
-			    <p><%= f.text_field :name, :placeholder => "Course Name" %></p>
-			    <%= f.label :course_date %>
-				<%= f.date_select :course_date %></p>
-			    <%= f.text_field :credits, :placeholder => "Course Credits" %></p>
-				<%= f.label :Select_Credential %>
-				<p><%= f.collection_select :credential_id, @credentials, :id, :title, method: :post %></p>
 
-				<%= f.label :Add_Course_Certificate %>
+  			<div class="field">
+  				<%= f.label :name, "Course Name", title: "Add the Course Name", data: {tooltip: true } %>
+			   	<%= f.text_field :name, :placeholder => "Course Name"%>
+			</div>
+
+			<div class="field">
+			    <%= f.label :course_date, "Course Date", title: "Select the Course Date", data: {tooltip: true }, :class =>"datepicker" %>
+				<%= f.date_select :course_date %></p>
+			</div>
+
+			<div class="field">
+				<%= f.label :credits, "Course Credits", title: "Enter the Number of Course Credits", data: {tooltip: true } %>
+			    <%= f.text_field :credits, :placeholder => "Course Credits" %></p>
+			</div>
+
+			<div class="field">
+				<%= f.label :credential_id, "Select Credential", title: "Select the Credential", data: {tooltip: true }  %>
+				<%= f.collection_check_boxes :credential_id, @credentials, :id, :title %>
+			</div>
+
+			<div class="field">
+				<%= f.label :Add_Course_Certificate, "Add a Course Certificate" %>
 				<p><%= f.file_field :certificate %></p>
+			</div>
   			
-			<%= f.submit %>
+			<%= f.submit nil, :class => "btn btn-success"%>
 		<% end %>
 </section>
 
-<%= link_to "Cancel", courses_path %>
+<%= link_to "Cancel", courses_path, :class => "btn btn-primary" %>
+
+
+

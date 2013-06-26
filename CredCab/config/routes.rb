@@ -1,5 +1,11 @@
 CredCab::Application.routes.draw do
 
+  get "admins/index", to: 'admins#index'
+  get "admins/show"
+  get "admins/edit"
+  get "admins/update"
+
+  devise_for :admins
   devise_for :users
   root 'home#index'
 

@@ -3,16 +3,28 @@ class Course < ActiveRecord::Base
   has_many :labels
   has_many :credentials, :through => :labels
 
-  # def credential_list
-  # 	self.credentials.pluck(:title)
-  # end
+  def label_list
+  	self.credentials.pluck(:title)
+  end
 
-
-  def credit_addition
-    courses.credits do |course|
-          course.credits 
+  def label_list=(labels)
+    labels.each do |label|
+      self.credentials << current_user.credentials.where(params[:id], label)
     end
   end
+
+
+  # def sum_credits
+
+  #   if credentials.title == courses.label_list
+  #     hours << courses.credits
+  #     hours.sum 
+
+  #     else 
+  #       nil 
+  #   end
+
+  # end
 
 
   mount_uploader :certificate, CourseimageUploader
@@ -24,4 +36,3 @@ class Course < ActiveRecord::Base
 end
 
 
-# ,  :class_name => "Course", :foreign_key => "credential_id"
