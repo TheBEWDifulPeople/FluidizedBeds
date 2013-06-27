@@ -11,3 +11,9 @@ module ApplicationHelper
   end	
 
 end
+
+
+	def image_boolean(image)
+			image.present? ? '✓' : 'x' 
+	end
+

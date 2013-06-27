@@ -4,4 +4,11 @@ module CoursesHelper
 		label_list.join("")
 	end
 
+	def applicable_course_to(credential)
+
+		credential.present? ? '✓' : 'x' 
+	end
+
 end
+
+ 

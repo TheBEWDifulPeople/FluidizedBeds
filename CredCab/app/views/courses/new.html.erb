@@ -33,7 +33,8 @@
 
 			<div class="field">
 				<%= f.label :credential_id, "Select Credential", title: "Select the Credential", data: {tooltip: true }  %>
-				<%= f.collection_check_boxes :credential_id, @credentials, :id, :title %>
+				<p><%= f.collection_select :credential_id, @credentials, :id, :title %></p>
+			<!-- 	<%= f.collection_check_boxes :credential_id, @credentials, :id, :title %> -->
 			</div>
 
 			<div class="field">

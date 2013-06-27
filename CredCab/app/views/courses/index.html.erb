@@ -9,24 +9,24 @@
 			    <th>Course Name</th>
 			    <th>Course Date</th>
 			    <th>Credits</th>
-			    <th>Certificate</th>
+			    <th>Certificate Uploaded</th>
 
 			  	<% @credentials.each do |credential|%>
 			  	<th><%=credential.title %></th>
 			  	<% end %>
-			  	<th>Credential</th>
+			  	<!-- <th>Credential</th> -->
   			</tr>
   			<% @courses.each do |course| %>
   			<tr>
 			    <td><p><%= course.name %></p></td>
 			    <td><p><%= course.course_date.strftime('%D') %></p></td>
 			    <td><p><%= course.credits %></p></td>
-				<td><p><%= course.certificate %></p></td>
+				<td><p><%= image_boolean(course.certificate) %></p></td>
 				
 				<% @credentials.each do |credential|%>
-			  	<td><%=credential.title %></td>
+			  	<td><%= applicable_course_to(course.credential_id) %></td>
 			  	<% end %>
-				<td><p><%= convert_to_label course.label_list %>
+			<!-- 	<td><p><%= convert_to_label course.label_list %> -->
 				<td><p><%= link_to "View", course %></p></td>
   			</tr>
   			<% end %>
