@@ -4,6 +4,6 @@ class User < ActiveRecord::Base
 	has_many :hours
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable, :confirmable,
+         :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable, 
          :lockable, :timeoutable
 end
